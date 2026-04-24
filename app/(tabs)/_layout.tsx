@@ -42,6 +42,13 @@ export default function TabsLayout() {
         }}
       />
       <Tabs.Screen
+        name="script"
+        options={{
+          title: "Script",
+          tabBarIcon: ({ color, size }) => <Ionicons name="code-slash" size={size} color={color} />
+        }}
+      />
+      <Tabs.Screen
         name="settings"
         options={{
           title: "Ajustes",
