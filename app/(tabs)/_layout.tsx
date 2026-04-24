@@ -1,33 +1,51 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
+import { Tabs } from "expo-router";
+import { Ionicons } from '@expo/vector-icons';
+import { Theme } from '../../src/utils/theme';
 
-import { HapticTab } from '@/components/haptic-tab';
-import { IconSymbol } from '@/components/ui/icon-symbol';
-import { Colors } from '@/constants/theme';
-import { useColorScheme } from '@/hooks/use-color-scheme';
-
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
+export default function TabsLayout() {
   return (
-    <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+    <Tabs 
+      screenOptions={{ 
         headerShown: false,
-        tabBarButton: HapticTab,
-      }}>
+        tabBarStyle: {
+          backgroundColor: Theme.colors.background,
+          borderTopColor: Theme.colors.border,
+          paddingBottom: 5,
+          height: 60,
+        },
+        tabBarActiveTintColor: Theme.colors.primary,
+        tabBarInactiveTintColor: Theme.colors.textMuted,
+        sceneStyle: {
+          backgroundColor: Theme.colors.background
+        }
+      }}
+    >
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          title: "Dashboard",
+          tabBarIcon: ({ color, size }) => <Ionicons name="pulse" size={size} color={color} />
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="objetos"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          title: "Equipamentos",
+          tabBarIcon: ({ color, size }) => <Ionicons name="hardware-chip" size={size} color={color} />
+        }}
+      />
+      <Tabs.Screen
+        name="logs"
+        options={{
+          title: "Diário",
+          tabBarIcon: ({ color, size }) => <Ionicons name="journal" size={size} color={color} />
+        }}
+      />
+      <Tabs.Screen
+        name="settings"
+        options={{
+          title: "Ajustes",
+          tabBarIcon: ({ color, size }) => <Ionicons name="settings" size={size} color={color} />
         }}
       />
     </Tabs>
