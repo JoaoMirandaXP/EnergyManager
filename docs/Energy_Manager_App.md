@@ -30,7 +30,7 @@ O **Energy Manager** é um "notebook de hábitos energéticos". Diferente de ras
 3. Rode o comando de inicialização: `npx expo start` ou `npm run start`.
 4. Um QR Code aparecerá. Abra o app **Expo Go** no seu Android, escaneie o código, e o app será carregado instantaneamente.
 
-## 🔮 Roadmap (Integração CalDAV)
+## 🔮 Roadmap (Integração CalDAV) (Bem lá no futuro mesmo, não agora...30/04/2025)
 A versão atual exporta dados e armazena localmente.
 Para o futuro, a conexão com o **Servidor Radicale (`https://start/radicale/jvcm`)** via VPN deverá ser feita criando uma pequena **API REST Node.js intermediária**.
 **Por que?** O CalDAV funciona lendo respostas XML complexas e WebDAV. Fazer essa leitura direta pelo frontend do React Native causa lentidão. Uma API intermediária pode extrair os eventos do seu calendário e convertê-los em JSON puro para o aplicativo consumir no formato dos `Logs` atuais.
